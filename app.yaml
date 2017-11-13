@@ -3,4 +3,4 @@ api_version: 1
 
 handlers:
 - url: /.*
-  script: test.php
+  script: index.php
