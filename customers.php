@@ -87,8 +87,8 @@
 												<tr>
 													<td><label><strong>Occupation</strong></label></td>
 													<td id="occupation">_____________</td>		
-													<td><label><strong>Next of Kin</strong></label></td>
-													<td id="nok">_____________</td>	
+													<td><label><strong></strong></label></td>
+													<td id="nok"></td>	
 												</tr>
 												<tr>
 													<td><label><strong>Mobile</strong></label></td>
