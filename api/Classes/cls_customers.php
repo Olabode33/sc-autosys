@@ -13,10 +13,17 @@
 		function get_customers($id = 0) {
 			$customers = array("status" => 0, "msg" => "No Customers found");
 			
-			$sql = "SELECT c.cid, c.title, c.surname, c.middlename, c.firstname, c.gender, c.cardno, c.enroleeid, c.phoneno1, c.phoneno2, c.email1, c.email2, c.rship_type, c.rship_account, c.dob, c.age, c.address, c.address_area, c.address_state, c.occupation, 
-									 c.dob_day, c.dob_month, c.nok_fname, c.nok_lname, c.nok_email, c.nok_phone, c.nok_relationship, ch.casenote
-						FROM sc_customers c
-							left join sc_chistory ch on c.cid = ch.cid";
+			$sql = "SELECT c.cid, ifnull(c.title, '-') title, ifnull(c.surname, '-') surname, ifnull(c.middlename, '') middlename, 
+					ifnull(c.firstname, '') firstname, ifnull(c.gender, '-') gender, ifnull(c.cardno, '-') cardno, 
+					ifnull(c.enroleeid, '-') enroleeid, ifnull(c.phoneno1, '-') phoneno1, ifnull(c.phoneno2, '') phoneno2, 
+					ifnull(c.email1, '-') email1, ifnull(c.email2, '') email2, ifnull(c.rship_type, '') rship_type, 
+					ifnull(c.rship_account, '-') rship_account, ifnull(c.dob, '') dob, ifnull(c.age, '-') age, 
+					ifnull(c.address, '-') address, ifnull(c.address_area, '') address_area, ifnull(c.address_state, '') address_state,
+					ifnull(c.occupation, '-') occupation, ifnull(c.dob_day, '-') dob_day, ifnull(c.dob_month, '-') dob_month, 
+					ifnull(c.nok_fname, '-') nok_fname, ifnull(c.nok_lname, '-') nok_lname, ifnull(c.nok_email, '-') nok_email, 
+					ifnull(c.nok_phone, '-') nok_phone, ifnull(c.nok_relationship, '-') nok_relationship, ifnull(ch.casenote, '-') casenote
+				FROM sc_customers c
+					left join sc_chistory ch on c.cid = ch.cid";
 						
 			if($id != 0)
 				$sql .= " WHERE c.cid=?;";
