@@ -83,7 +83,7 @@
 			</div>
 
 			<div class="col-md-2">
-				<a style="text-align: left;" class="btn btn-block btn-default btn-block" id="btn_goback" href="partners.php"><i class="fa fa-reply"></i> Go Back</a> 
+				<a style="text-align: left;" class="btn btn-block btn-default btn-block" id="btn_goback" href="partners.php"><i class="fa fa-cubes"></i> View All Partners</a> 
 				<button type="reset" class="btn btn-block btn-default" style="text-align: left;" id="btn_clear">
 					<i class="fa fa-eraser" id=""></i> Clear
 				</button> 
