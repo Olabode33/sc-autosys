@@ -478,7 +478,7 @@
 					$("#fullname").html(item.title + " " + item.fname + ' ' + item.lname);
 					$("#gender").html(item.gender);
 					$("#fulladdress").html(item.address + ", " + item.address_area + " " + item.address_state);
-					$("#dob").html(item.dob);
+					$("#dob").html(item.dob + '-' + item.dob_month + '-' + item.dob_day);
 					$("#age").html(item.age);
 					$("#occupation").html(item.occupation);
 					$("#nok").html(item.nok);
