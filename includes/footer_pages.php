@@ -8,12 +8,15 @@
 		</div>  
 		<footer class="navbar navbar-default" style="margin-bottom: 0px;">
 			<div class="container"style="margin-top:10px;">
-				Copyright 2017
-				
-				<span class="pull-right">
-					v0.2b
-				</span>
+				Copyright &copy; 2017-<span id="copy_yr"></span> SightCity. All rights reserved.
+				<strong class="pull-right">v1.0.0</strong>
 			</div>
 		</footer>
+		
+		<script>
+			var cur_year = new Date();
+			
+			$("#copy_yr").text(cur_year.getFullYear());
+		</script>
 	</body>
 </html>
