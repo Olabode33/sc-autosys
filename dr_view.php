@@ -638,8 +638,7 @@
 												</div>
 											</div>
 										</div>
-									</div>
-									
+									</div>						
 									<!-- REFRACTION -->
 									<div class="panel panel-default panel-primary">
 										<div class="panel-heading">
@@ -725,13 +724,43 @@
 													
 													<div class="col-sm-4">
 														<div class="form-group">
-															<input type="text" id="sub_va_r" name="sub_va_r" class="form-control">
+															<select id="sub_va_r" name="sub_va_r" class="form-control">
+																<option value=""></option>
+																<option value="NLP">NLP</option>
+																<option value="LP">LP</option>
+																<option value="HM@6m">HM@6m</option>
+																<option value="CF@6m">CF@6m</option>
+																<option value="6/60">6/60</option>
+																<option value="6/36">6/36</option>
+																<option value="6/24">6/24</option>
+																<option value="6/18">6/18</option>
+																<option value="6/12">6/12</option>
+																<option value="6/9">6/9</option>
+																<option value="6/6">6/6</option>
+																<option value="6/5">6/5</option>
+																<option value="6/4">6/4</option>
+															</select>
 														</div>
 													</div>
 																									
 													<div class="col-sm-4" style="padding-right:20px">
 														<div class="form-group">
-															<input type="text" id="sub_va_l" name="sub_va_l" class="form-control">
+															<select id="sub_va_l" name="sub_va_l" class="form-control">
+																<option value=""></option>
+																<option value="NLP">NLP</option>
+																<option value="LP">LP</option>
+																<option value="HM@6m">HM@6m</option>
+																<option value="CF@6m">CF@6m</option>
+																<option value="6/60">6/60</option>
+																<option value="6/36">6/36</option>
+																<option value="6/24">6/24</option>
+																<option value="6/18">6/18</option>
+																<option value="6/12">6/12</option>
+																<option value="6/9">6/9</option>
+																<option value="6/6">6/6</option>
+																<option value="6/5">6/5</option>
+																<option value="6/4">6/4</option>
+															</select>
 														</div>
 													</div>								
 												</div>
@@ -795,7 +824,22 @@
 												
 													<div class="col-sm-8" style="padding-right:20px">
 														<div class="form-group">
-															<input type="text" id="fb_va_l" name="fb_va_l" class="form-control">
+															<select id="fb_va_l" name="fb_va_l" class="form-control">
+																<option value=""></option>
+																<option value="NLP">NLP</option>
+																<option value="LP">LP</option>
+																<option value="HM@6m">HM@6m</option>
+																<option value="CF@6m">CF@6m</option>
+																<option value="6/60">6/60</option>
+																<option value="6/36">6/36</option>
+																<option value="6/24">6/24</option>
+																<option value="6/18">6/18</option>
+																<option value="6/12">6/12</option>
+																<option value="6/9">6/9</option>
+																<option value="6/6">6/6</option>
+																<option value="6/5">6/5</option>
+																<option value="6/4">6/4</option>
+															</select>
 														</div>	
 													</div>					
 												</div>
@@ -809,7 +853,19 @@
 												
 													<div class="col-sm-8" style="padding-right:20px">
 														<div class="form-group">
-															<input type="text" id="fb_near_new" name="fb_near_new" class="form-control">
+															<select id="fb_near_new" name="fb_near_new" class="form-control">
+																<option value=""></option>
+																<option value="N.5">N.5</option>
+																<option value="N.6">N.6</option>
+																<option value="N.8">N.8</option>
+																<option value="N.10">N.10</option>
+																<option value="N.12">N.12</option>
+																<option value="N.14">N.14</option>
+																<option value="N.18">N.18</option>
+																<option value="N.24">N.24</option>
+																<option value="N.36">N.36</option>
+																<option value="N.48">N.48</option>
+															</select>
 														</div>
 													</div>				
 												</div>
@@ -817,7 +873,6 @@
 											</div>
 										</div>
 									</div> 
-									
 									<!-- External Examination -->
 									<div class="panel panel-primary">
 										<div class="panel-heading">
@@ -825,157 +880,116 @@
 										</div>
 										<div id="ee" class="panel-collapse collapse">
 											<div class="panel-body">
-									
+												<div class="row">
+													<h5 class="col-sm-4" style="font-weight:bold"></h5> 
+													<h6 class="col-sm-4" style="font-weight:bold; text-align:center">OD</h6>
+													<h6 class="col-sm-4" style="font-weight:bold; text-align:center">OS</h6> 
+												</div>
 												<div class="form-group">
-													<div class="col-sm-3">
+													<div class="col-sm-4">
 														<label class="control-label">LIDS</label>
 													</div>
-													<div class="col-sm-7">
+													<div class="col-sm-4">
 														<input type="text" id="lids" name="lids" class="form-control">
 													</div>
-													<div class="col-sm-2">
-														<select class="form-control" name="lidsodosou" id="lidsodosou">
-															<option value=""></option>
-															<option value="OD">OD</option>
-															<option value="OS">OS</option>
-															<option value="OU">OU</option>
-														</select>
+													<div class="col-sm-4">
+														<input type="text" class="form-control" name="lidsodosou" id="lidsodosou">
 													</div>
 												</div>
 																	
 												<div class="form-group">
-													<div class="col-sm-3">
+													<div class="col-sm-4">
 													  <label class="control-label">CONJUNCTIVA</label>
 													</div>
-													<div class="col-sm-7">
+													<div class="col-sm-4">
 														<input type="text" id="con" name="con" class="form-control">
 													</div>
-													<div class="col-sm-2">
-														<select class="form-control" name="conodosou" id="conodosou">
-															<option value=""></option>
-															<option value="OD">OD</option>
-															<option value="OS">OS</option>
-															<option value="OU">OU</option>
-														</select>
+													<div class="col-sm-4">
+														<input type="text" class="form-control" name="conodosou" id="conodosou">
 													</div>
 												</div>
 										
 												<div class="form-group">
-													<div class="col-sm-3">
+													<div class="col-sm-4">
 														<label class="control-label">CORNEA</label>
 													</div>
-													<div class="col-sm-7">
+													<div class="col-sm-4">
 														<input type="text" id="cornea" name="cornea" class="form-control">
 													</div>
-													<div class="col-sm-2">
-														<select class="form-control" name="corneaodosou" id="corneaodosou">
-															<option value=""></option>
-															<option value="OD">OD</option>
-															<option value="OS">OS</option>
-															<option value="OU">OU</option>
-														</select>
+													<div class="col-sm-4">
+														<input type="text" class="form-control" name="corneaodosou" id="corneaodosou">
 													</div>
 												</div>									
 										
 												<div class="form-group">
-													<div class="col-sm-3">
+													<div class="col-sm-4">
 														<label class="control-label">ANTERIOR CHAMBER</label>
 													</div>
-													<div class="col-sm-7">
+													<div class="col-sm-4">
 														<input type="text" id="antc" name="antc" class="form-control">
 													</div>
-													<div class="col-sm-2">
-														<select class="form-control" name="antcodosou" id="antcodosou">
-															<option value=""></option>
-															<option value="OD">OD</option>
-															<option value="OS">OS</option>
-															<option value="OU">OU</option>
-														</select>
+													<div class="col-sm-4">
+														<input type="text" class="form-control" name="antcodosou" id="antcodosou">
 													</div>
 												</div>
 										
 												<div class="form-group">
-													<div class="col-sm-3">
+													<div class="col-sm-4">
 														<label class="control-label">IRIS</label>
 													</div>
-													<div class="col-sm-7">
+													<div class="col-sm-4">
 														<input type="text" id="iris" name="iris" class="form-control">
 													</div>
-													<div class="col-sm-2">
-														<select class="form-control" name="irisodosou" id="irisodosou">
-															<option value=""></option>
-															<option value="OD">OD</option>
-															<option value="OS">OS</option>
-															<option value="OU">OU</option>
-														</select>
+													<div class="col-sm-4">
+														<input type="text" class="form-control" name="irisodosou" id="irisodosou">
 													</div>
 												</div>
 										
 												<div class="form-group">
-													<div class="col-sm-3">
+													<div class="col-sm-4">
 													  <label class="control-label">PUPIL</label>
 													 </div>
-													<div class="col-sm-7">
+													<div class="col-sm-4">
 													  <input type="text" id="pupl" name="pupl" class="form-control">
 													</div>
-													<div class="col-sm-2">
-														<select class="form-control" name="puplodosou" id="puplodosou">
-															<option value=""></option>
-															<option value="OD">OD</option>
-															<option value="OS">OS</option>
-															<option value="OU">OU</option>
-														</select>
+													<div class="col-sm-4">
+														<input type="text" class="form-control" name="puplodosou" id="puplodosou">
 													</div>
 												</div>
 												
 												<div class="form-group">
-													<div class="col-sm-3">
+													<div class="col-sm-4">
 														<label class="control-label">LENS</label>
 													 </div>
-													<div class="col-sm-7">
+													<div class="col-sm-4">
 														<input type="text" id="lens" name="lens" class="form-control">
 													</div>
-													<div class="col-sm-2">
-														<select class="form-control" name="lensodosou" id="lensodosou">
-															<option value=""></option>
-															<option value="OD">OD</option>
-															<option value="OS">OS</option>
-															<option value="OU">OU</option>
-														</select>
+													<div class="col-sm-4">
+														<input type="text" class="form-control" name="lensodosou" id="lensodosou">
 													</div>
 												</div>
 										
 												<div class="form-group">
-													<div class="col-sm-3">
+													<div class="col-sm-4">
 														<label class="control-label">COLOUR VISION</label>
 													</div>
-													<div class="col-sm-7">
+													<div class="col-sm-4">
 														<input type="text" id="colv" name="colv" class="form-control">
 													</div>
-													<div class="col-sm-2">
-														<select class="form-control" name="colvodosou" id="colvodosou">
-															<option value=""></option>
-															<option value="OD">OD</option>
-															<option value="OS">OS</option>
-															<option value="OU">OU</option>
-														</select>
+													<div class="col-sm-4">
+														<input type="text" class="form-control" name="colvodosou" id="colvodosou">
 													</div>
 												</div>
 												
 												<div class="form-group">
-													<div class="col-sm-3">
+													<div class="col-sm-4">
 														<label class="control-label">OTHERS</label>
 													</div>
-													<div class="col-sm-7">
+													<div class="col-sm-4">
 														<input type="text" id="oth" name="oth" class="form-control">
 													</div>
-													<div class="col-sm-2">
-														<select class="form-control" name="othodosou" id="othodosou">
-															<option value=""></option>
-															<option value="OD">OD</option>
-															<option value="OS">OS</option>
-															<option value="OU">OU</option>
-														</select>
+													<div class="col-sm-4">
+														<input type="text" class="form-control" name="othodosou" id="othodosou">
 													</div>
 												</div>
 											</div>
@@ -988,105 +1002,80 @@
 										</div>
 										<div id="omsle" class="panel-collapse collapse">
 											<div class="panel-body">
+												<div class="row">
+													<h5 class="col-sm-4" style="font-weight:bold"></h5> 
+													<h6 class="col-sm-4" style="font-weight:bold; text-align:center">OD</h6>
+													<h6 class="col-sm-4" style="font-weight:bold; text-align:center">OS</h6> 
+												</div>
 												<div class="form-group">
-													<div class="col-sm-3">
+													<div class="col-sm-4">
 														<label class="control-label">VITREOUS</label>
 													</div>
-													<div class="col-sm-7">
+													<div class="col-sm-4">
 														<input type="text" id="vitr" name="vitr" class="form-control">
 													</div>
-													<div class="col-sm-2">
-														<select class="form-control" name="vitrodosou" id="vitrodosou">
-															<option value=""></option>
-															<option value="OD">OD</option>
-															<option value="OS">OS</option>
-															<option value="OU">OU</option>
-														</select>
+													<div class="col-sm-4">
+														<input type="text" class="form-control" name="vitrodosou" id="vitrodosou">
 													</div>
 												</div>
 										
 												<div class="form-group">
-													<div class="col-sm-3">
+													<div class="col-sm-4">
 														<label class="control-label">CHOROID</label>
 													</div>
-													<div class="col-sm-7">
+													<div class="col-sm-4">
 														<input type="text" id="chor" name="chor" class="form-control">
 													</div>
-													<div class="col-sm-2">
-														<select class="form-control" name="chorodosou" id="chorodosou">
-															<option value=""></option>
-															<option value="OD">OD</option>
-															<option value="OS">OS</option>
-															<option value="OU">OU</option>
-														</select>
+													<div class="col-sm-4">
+														<input type="text" class="form-control" name="chorodosou" id="chorodosou">
 													</div>
 												</div>
 										
 												<div class="form-group">
-													<div class="col-sm-3">
+													<div class="col-sm-4">
 														<label class="control-label">RETINA</label>
 													</div>
-													<div class="col-sm-7">
+													<div class="col-sm-4">
 														<input type="text" id="ret" name="ret" class="form-control">
 													</div>
-													<div class="col-sm-2">
-														<select class="form-control" name="retodosou" id="retodosou">
-															<option value=""></option>
-															<option value="OD">OD</option>
-															<option value="OS">OS</option>
-															<option value="OU">OU</option>
-														</select>
+													<div class="col-sm-4">
+														<input type="text" class="form-control" name="retodosou" id="retodosou">
 													</div>
 												</div>
 										
 												<div class="form-group">
-													<div class="col-sm-3">
+													<div class="col-sm-4">
 														<label class="control-label">MACULAR</label>
 													</div>
-													<div class="col-sm-7">
+													<div class="col-sm-4">
 														<input type="text" id="mac" name="mac" class="form-control">
 													</div>
-													<div class="col-sm-2">
-														<select class="form-control" name="macodosou" id="macodosou">
-															<option value=""></option>
-															<option value="OD">OD</option>
-															<option value="OS">OS</option>
-															<option value="OU">OU</option>
-														</select>
+													<div class="col-sm-4">
+														<input type="text" class="form-control" name="macodosou" id="macodosou">
 													</div>
 												</div>
 										
 												<div class="form-group">
-													<div class="col-sm-3">
+													<div class="col-sm-4">
 														<label class="control-label">DISC</label>
 													</div>
-													<div class="col-sm-7">
+													<div class="col-sm-4">
 														<input type="text" id="disc" name="disc" class="form-control">
 													</div>
-													<div class="col-sm-2">
-														<select class="form-control" name="discodosou" id="discodosou">
-															<option value=""></option>
-															<option value="OD">OD</option>
-															<option value="OS">OS</option>
-															<option value="OU">OU</option>
-														</select>
+													<div class="col-sm-4">
+														<input type="text" class="form-control" name="discodosou" id="discodosou">
 													</div>
 												</div>
 										
 												<div class="form-group">
-													<div class="col-sm-3">
+													<div class="col-sm-4">
 														<label class="control-label">OTHERS</label>
 													</div>
-													<div class="col-sm-7">
+													<div class="col-sm-4">
 														<input type="text" id="oth1" name="oth1" class="form-control">
 													</div>
-													<div class="col-sm-2">
-														<select class="form-control" name="oth1odosou" id="oth1odosou">
-															<option value=""></option>
-															<option value="OD">OD</option>
-															<option value="OS">OS</option>
-															<option value="OU">OU</option>
-														</select>
+													<div class="col-sm-4">
+														<input type="text" class="form-control" name="oth1odosou" id="oth1odosou">
 													</div>
 												</div>
 											
@@ -1139,7 +1128,6 @@
 											<button type="button" class="btn btn-info sctheme pull-right" id="btn_bk_appt" style="margin-right: 10px;"><i class="fa fa-calendar-plus-o" id="book_icon"></i> Book Appointment</button>
 										</div>
 									</div>
-									
 								</div>
 							</form>
 						</div>
