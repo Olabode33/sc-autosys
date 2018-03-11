@@ -95,6 +95,11 @@
 			$customersRestHandler->addDependent();
 			break;
 			
+		case "update_dependent":
+			$customersRestHandler = new Customers_RestHandler();
+			$customersRestHandler->updateDependent($_GET['id']);
+			break;
+			
 		case "get_dependents":
 			//to handle REST Url /customer/new/
 			$customersRestHandler = new Customers_RestHandler();

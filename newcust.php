@@ -323,6 +323,8 @@
 							$("#nok_email").val(item.nok_email);
 							$("#nok_rel").val(item.nok_relationship);
 							
+							$("#cardno").attr("disabled", true);
+							
 							$("#btn_clear").addClass("hidden");
 							//$("#btn_delete").removeClass("hidden");
 							$("#btn_delete").bind("click", function(){

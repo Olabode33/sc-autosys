@@ -241,7 +241,7 @@
 			$mname = $_POST["mname"];
 			$fname = $_POST["fname"];
 			$gender = $_POST["gender"];
-			$cardno = $_POST["cardno"];
+			//$cardno = $_POST["cardno"];
 			$enroleeid = $_POST["cardno"];
 			$phone1 = $_POST["phone1"];
 			$phone2 = $_POST["phone2"];
@@ -269,7 +269,6 @@
 							   middlename = ?, 
 							   firstname = ?, 
 							   gender = ?, 
-							   cardno = ?, 
 							   enroleeid = ?, 
 							   phoneno1 = ?, 
 							   phoneno2 = ?, 
@@ -296,12 +295,11 @@
 			try{
 				$conn = $this->db_obj->db_connect();
 				$stmt = $conn->prepare($sql);
-				$stmt->bind_param('ssssssssssssssssssssssssssd', $title, 
+				$stmt->bind_param('sssssssssssssssssssssssssd', $title, 
 																			  $lname, 
 																			  $mname,
 																			  $fname, 
 																			  $gender, 
-																			  $cardno, 
 																			  $enroleeid, 
 																			  $phone1, 
 																			  $phone2,
@@ -651,19 +649,23 @@
 			$phone1 = $_POST["phone"];
 			$email1 = $_POST["email"];
 			$rship = $_POST["rship"];
+			$age = $_POST["age"];
+			$dob = ((isset($_POST["age"]) && $_POST["age"] != '' && $_POST["age"] != ' ')?$this->get_year_of_birth_from_age($_POST["age"]):null);
 			$primary_acct = $_POST["primary"];
 			$primary_id = $_POST["pri_id"];
 						
-			$sql = "INSERT INTO sc_dependents (fname, lname, gender, relationship, phone, email, primary_acct, primary_cid, date_created)
-						VALUES (?, ?, ?, ?, ?, ?, ?, ?, now());";
+			$sql = "INSERT INTO sc_dependents (fname, lname, gender, relationship, age, dob, phone, email, primary_acct, primary_cid, date_created)
+						VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, now());";
 			
 			try{
 				$conn = $this->db_obj->db_connect();
 				$stmt = $conn->prepare($sql);
-				$stmt->bind_param('sssssssd', $fname,
+				$stmt->bind_param('ssssdssssd', $fname,
 											  $lname,
 											  $gender,
 											  $rship,
+											  $age,
+											  $dob,
 											  $phone1,
 											  $email1,
 											  $primary_acct,
@@ -685,16 +687,72 @@
 			return array_filter($msg);
 		}
 		
+		function update_dependant($dep_id){
+			$_POST = array_map( 'stripslashes', $_POST );
+			
+			$lname = $_POST["lname"];
+			$fname = $_POST["fname"];
+			$gender = $_POST["gender"];
+			$phone1 = $_POST["phone"];
+			$email1 = $_POST["email"];
+			$rship = $_POST["rship"];
+			$age = $_POST["age"];
+			$dob = ((isset($_POST["age"]) && $_POST["age"] != '' && $_POST["age"] != ' ')?$this->get_year_of_birth_from_age($_POST["age"]):null);
+			$primary_acct = $_POST["primary"];
+			$primary_id = $_POST["pri_id"];
+						
+			$sql = "UPDATE sc_dependents 
+						SET fname = ?, 
+							lname = ?, 
+							gender = ?, 
+							relationship = ?, 
+							age = ?, 
+							dob = ?, 
+							phone = ?, 
+							email= ? 
+					WHERE dep_id = ?;";
+			
+			try{
+				$conn = $this->db_obj->db_connect();
+				$stmt = $conn->prepare($sql);
+				$stmt->bind_param('ssssdsssd', $fname,
+											  $lname,
+											  $gender,
+											  $rship,
+											  $age,
+											  $dob,
+											  $phone1,
+											  $email1,
+											  $dep_id);
+				
+				if($stmt->execute() ){
+					$msg = array("status" => 1, "msg" => "Your record was updated successfully");
+				}
+				else {
+					$msg = array("status" => 0, "msg" => "Error: " . $sql ."". mysqli_error($conn)); 
+				}
+				
+				mysqli_close($conn);
+			}
+			catch(Exception $e){
+				$msg = array("status" => 0, "msg" => "Error: " . $e->message() . "");
+			}		
+			
+			return array_filter($msg);
+		}
+		
 		function get_dependents($id = 0) {
 			$customers = array("status" => 0, "msg" => "No Dependents found");
 			
-			$sql = "SELECT dep_id, fname, lname, gender, relationship, phone, email, primary_acct, primary_cid, date_created
-					FROM `sc_dependents`
+			$sql = "SELECT d.dep_id, d.fname, d.lname, d.gender, d.relationship, d.dob, d.phone, d.email, d.primary_acct, d.primary_cid, d.date_created, c.firstname as 'PriFName', c.surname as 'PriSName'
+					FROM `sc_dependents` d
+						Left join `sc_customers` as c on d.primary_cid = c.cid 
 					WHERE primary_acct = ?";
 			
 			if(is_numeric($id) && $id > 0)
-				$sql = "SELECT dep_id, fname, lname, gender, relationship, phone, email, primary_acct, primary_cid, date_created
-						FROM `sc_dependents`
+				$sql = "SELECT d.dep_id, d.fname, d.lname, d.gender, d.relationship, d.dob, d.phone, d.email, d.primary_acct, d.primary_cid, d.date_created, c.firstname as 'PriFName', c.surname as 'PriSName'
+						FROM `sc_dependents` d
+							Left join `sc_customers` as c on d.primary_cid = c.cid 
 						WHERE dep_id = ?";
 			
 			try {
@@ -702,7 +760,7 @@
 				$stmt = $conn->prepare($sql);
 				$stmt->bind_param('s', $id);
 				$stmt->execute();
-				$stmt->bind_result($dep_id, $fname, $lname, $gender, $relationship, $phone, $email, $primary_acct, $primary_cid, $date_created);
+				$stmt->bind_result($dep_id, $fname, $lname, $gender, $relationship, $dob, $phone, $email, $primary_acct, $primary_cid, $date_created, $priFName, $priSName);
 				
 				while($stmt->fetch()){
 					$result[] = array("dep_id" => $dep_id, 
@@ -710,11 +768,14 @@
 									  "lname" => $lname, 
 									  "gender" => $gender, 
 									  "rship" => $relationship, 
+									  "age" => ((isset($dob) && $dob != '')?$this->get_age($dob):NULL),
 									  "phone" => $phone, 
 									  "email" => $email, 
 									  "pri_acct" => $primary_acct, 
 									  "pri_id" => $primary_cid, 
-									  "date_created" => $date_created);
+									  "date_created" => $date_created,
+									  "pri_fname" => $priFName,
+									  "pri_sname" => $priSName);
 				}
 				
 				if(isset($result))
@@ -905,8 +966,8 @@
 			$birth_year = 0;
 			$cur_year = date('Y');			
 			
-			if(isset($age) & is_int($age)){
-				$birth_year = $cur_year - $age;
+			if(isset($age) && is_int($age)){
+				$birth_year = $cur_year - (int)$age;
 			}
 			else{
 				$birth_year = null;
@@ -920,7 +981,7 @@
 			$cur_year = date('Y');
 			$birth_year = (int)$birth_year;
 			
-			if(isset($birth_year) || $birth_year != ''){
+			if(isset($birth_year) || $birth_year != '' || $birth_year != NULL){
 				$age = $cur_year - $birth_year;
 			}
 			else

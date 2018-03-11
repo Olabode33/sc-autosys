@@ -200,6 +200,20 @@
 			$this->getResponse($rawData, $statusCode);
 		}
 		
+		public function updateDependent($id) {
+			$customer_obj = new Customers();
+			$rawData = $customer_obj->update_dependant($id);
+			
+			if(empty($rawData)) {
+				$statusCode = 404;
+				$rawData = array('Error' => 'An error occured add dependent!');
+			} else {
+				$statusCode = 200;
+			}
+			
+			$this->getResponse($rawData, $statusCode);
+		}
+		
 		public function getDependents($id) {
 			$customer_obj = new Customers();
 			$rawData = $customer_obj->get_dependents($id);

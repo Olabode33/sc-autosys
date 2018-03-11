@@ -201,12 +201,13 @@
 										<div class="table-responsive">
 											<table class="table table-hover" id="tbl_dependents" >
 												<thead class="thead-inverse">							
-													<th class="col-xs-3">Name</th>
+													<th class="col-xs-2">Name</th>
 													<th class="col-xs-1" >Gender</th>
 													<th class="col-xs-2">Relationship</th>
-													<th class="col-xs-2">Phone</th>	
+													<th class="col-xs-1">Age</th>
+													<th class="col-xs-1">Phone</th>	
 													<th class="col-xs-2">Email</th>		
-													<th class="col-xs-2"></th>		
+													<th class="col-xs-3"></th>		
 												</thead>
 												
 												<tbody>
@@ -352,6 +353,7 @@
 										</div>
 										<input type="text" placeholder="" name="pri_acct_name" id="pri_acct_name" class="form-control" disabled>
 										<input type="hidden" placeholder="" name="pri_acct_id" id="pri_acct_id" class="form-control">
+										<input type="hidden" name="dep_update_id" id="dep_update_id">
 									</div>
 								</div>
 								<label class="col-sm-2 control-label" for="pri_cardno">Card No.</label>
@@ -391,6 +393,12 @@
 								</div>
 							</div>
 							<div class="form-group">
+								<label class="col-sm-2 control-label">Age</label>
+								<div class="col-sm-4">
+									<input type="text" placeholder="Dependent's Age" name="newdep_age" id="newdep_age" class="form-control">
+								</div>
+							</div>
+							<div class="form-group">
 								<label class="col-sm-2 control-label" for="newdep_phone">Mobile Number</label>
 								<div class=" col-sm-4">
 									<input type="number" placeholder="Dependent's mobile number" name="newdep_phone" id="newdep_phone" class="form-control">
@@ -415,7 +423,7 @@
 		</div>
 	</div>
 	
-	<!-- Modal div to delete a project --> 
+	<!-- --> 
 	<div class="modal fade" id="history_details" tabindex="-1" role="dialog"  aria-labelledby="projectTitle" aria-hidden="true"> 
 		<div class="modal-dialog modal-lg modal-header-danger" role="document"> 
 			<div class="modal-content"> 
@@ -836,6 +844,8 @@
 								row.append(rowData);
 								rowData = $('<td></td>').text(item.rship);
 								row.append(rowData);
+								rowData = $('<td></td>').text(item.age);
+								row.append(rowData);
 								rowData = $('<td></td>').text(item.phone);
 								row.append(rowData);
 								rowData = $('<td></td>').text(item.email);
@@ -846,7 +856,14 @@
 								bookAppButton.attr('data-toggle', 'tooltip');
 								bookAppButton.attr('title', 'Book an Appointment for dependent');
 								bookAppButton.attr('onclick', 'book_c_appt('+item.pri_id+', '+item.dep_id+')');
-								rowData = $('<td></td>').append(bookAppButton);
+								
+								updateDepButton = $('<button></button>').addClass("btn btn-warning btn-xs").html('<i class="fa fa-pencil-square-o"></i> Update');
+								updateDepButton.attr('data-toggle', 'tooltip');
+								updateDepButton.attr('title', 'Update Dependent\'s Record');
+								updateDepButton.attr('onclick', 'update_dep_record(' + item.dep_id + ')');
+								
+								rowData = $('<td></td>').append(bookAppButton, '&nbsp;', updateDepButton);
+								
 									
 								row.append(rowData);
 									
@@ -1090,13 +1107,14 @@
 		});
 	
 		function add_new_dep(id) {
-			$("#frm_book_appoitment").trigger("reset");
+			$("#frm_new_dep").trigger("reset");
 			$.get('api/Controllers/Customers_RestController.php?view=single&id='+id, function(data) {
 				data = $.parseJSON(data);
 				//console.log(data);
 				
 				$.each(data, function(i, item) {
 					$("#pri_acct_id").val(id);
+					$("#dep_update_id").val(0);
 					$("#pri_cardno").val(item.cardno);
 					$("#pri_acct_name").val(item.title + " " + item.fname + ' ' + item.lname);
 					$("#btn_back2details").attr("onclick", "view_details("+id+")");
@@ -1118,24 +1136,57 @@
 		  }
 		});
 	
+		function update_dep_record(dep_id){
+			$("#frm_new_dep").trigger("reset");
+			
+			$.get('api/Controllers/Customers_RestController.php?view=get_dependents&id='+dep_id, function(data) {
+				data = $.parseJSON(data);
+				console.log(data);
+				
+				$.each(data, function(i, item) {
+					$("#pri_acct_id").val(item.pri_id);
+					$("#dep_update_id").val(dep_id);
+					$("#pri_cardno").val(item.pri_acct);
+					$("#pri_acct_name").val(item.pri_fname + ' ' + item.pri_sname);
+					$("input[name=newdep_gender][value=" + item.gender + "]").attr("checked", "checked");
+					$("#newdep_fname").val(item.fname),
+					$("#newdep_lname").val(item.lname),
+					$("#newdep_relationship").val(item.rship),
+					$("#newdep_email").val(item.email),
+					$("#newdep_phone").val(item.phone),
+					$("#newdep_age").val(item.age)
+					$("#btn_back2details").attr("onclick", "view_details(" + item.pri_id + ")");
+				});
+				
+			});
+			
+			$("#summary-list").addClass("hidden");
+			$("#details").addClass("hidden");
+			$("#book_appointment").addClass("hidden");
+			$("#add_new_dep").removeClass("hidden");
+		}
+	
 		$("#frm_new_dep").submit(function(e) { 
 			$("#new_dep_icon").removeClass("fa-plus");
 			$("#new_dep_icon").addClass("fa-spinner fa-pulse");
 				
 			e.preventDefault();
+
+			var dep_update_id = $("#dep_update_id").val();
 			
 			$.ajax({
-				url: 'api/Controllers/Customers_RestController.php?view=add_dependent',
+				url: 'api/Controllers/Customers_RestController.php?view=' + (dep_update_id == 0 ? 'add_dependent' : 'update_dependent&id=' + dep_update_id),
 				type: 'post',
 				data : {
 					'pri_id' : $("#pri_acct_id").val(),
 					'primary': $("#pri_cardno").val(),
 					'fname': $("#newdep_fname").val(),
 					'lname': $("#newdep_lname").val(),
-					'gender': $("#newdep_gender").val(),
+					'gender': $('input[name=newdep_gender]:checked').val(),
 					'rship': $("#newdep_relationship").val(),
 					'email': $("#newdep_email").val(),
 					'phone': $("#newdep_phone").val(),
+					'age' : $("#newdep_age").val()
 				},
 				success: function(data) {
 				   //alert (data);
@@ -1150,6 +1201,7 @@
 						$("#loading_cus").removeClass("hidden");
 				   }
 				   else {
+						//alert (data)
 						$("#new_dep_icon").removeClass("fa-spinner fa-pulse");
 						$("#new_dep_icon").addClass("fa-save");
 						$("#book_appt_alert").removeClass("alert-info");
