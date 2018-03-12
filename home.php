@@ -224,7 +224,7 @@
 						//viewButton.attr('href', '#');
 						viewButton.attr('data-toggle', 'tooltip');
 						viewButton.attr('title', 'View Details');
-						viewButton.attr("href", "dr_view.php?id="+item.cid+"&a="+item.id);
+						viewButton.attr("href", "dr_view.php?id="+item.cid+"&a="+item.id+"&dep="+item.dep_id);
 						if(item.status != 'Closed')
 							rowData = $('<td></td>').append(viewButton);
 						else
