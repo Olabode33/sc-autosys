@@ -217,7 +217,20 @@
 						
 						rowData = $('<td></td>').text(item.dep_id > 0? item.dep : item.fname);
 						row.append(rowData);
-						rowData = $('<td></td>').html('<div class="badge" '+(item.status == 'New'? ' style="background-color: green"': item.status == 'Closed'? ' style="background-color: #337ab7"': '')+'>' + item.status + "</div>");
+						
+						var status = item.status
+						
+						if( item.status == "New"){
+							cur_date = new Date()
+							app_date = new Date(item.date)
+							
+							if ((cur_date.getDate() > app_date.getDate()) && (cur_date.getMonth() >= app_date.getMonth()) && (cur_date.getFullYear() >= app_date.getFullYear())){
+								status = "Missed"
+							}
+							console.log(status);
+						}
+						
+						rowData = $('<td></td>').html('<div class="badge" '+(status == 'New'? ' style="background-color: green"': (status == 'Closed') ? ' style="background-color: #337ab7"': (status == 'Missed') ? '' : '')+'>' + status + "</div>");
 						row.append(rowData);
 							
 						viewButton = $('<a></a>').addClass("btn btn-primary btn-xs details doctor-only").text("View Details");
