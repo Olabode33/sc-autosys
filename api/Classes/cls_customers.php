@@ -489,7 +489,8 @@
 													  when a.appointment_status = 'Open' then 2
 													  when a.appointment_status = 'Closed' then 3
 													  else 4
-											   end asc, a.appointment_date desc";
+											   end asc, a.appointment_date desc
+							LIMIT 0, 10";
 											   
 			if($id == -4)
 				$sql = "SELECT a.appointment_id, a.customer_cardno, a.appointment_date, a.appointment_notes, a.appointment_status, a.appointment_branch, a.date_created, 

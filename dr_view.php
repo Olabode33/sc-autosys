@@ -1225,6 +1225,10 @@
 			c_cid = c_cid[0];
 			//console.log(th_id);
 			
+			window.onbeforeunload = function() {
+				return true;
+			};
+			
 			if(c_cid != undefined){			
 				//$("#frm_title").html("Edit User")
 				$.get('api/Controllers/Customers_RestController.php?view=single&id='+c_cid, function(data) {

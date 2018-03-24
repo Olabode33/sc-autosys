@@ -268,7 +268,7 @@
 	</div>
 
 	<script>
-		$(document).ready( function() {		
+		$(document).ready( function() {	
 			//$("#rship_acc").select2();
 			$.get('api/Controllers/Partners_RestController.php?view=all', function(data) {
 				//console.log(data);
@@ -433,6 +433,10 @@
 					}
 				});
 			});
+			
+			window.onbeforeunload = function() {
+				return true;
+			};
 			
 			$("#rship_type").change(function() {
 				$.get('api/Controllers/Partners_RestController.php?view=type&id='+$("#rship_type").val(), function(data) {
