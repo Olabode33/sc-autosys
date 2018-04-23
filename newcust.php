@@ -346,7 +346,7 @@
 										$("#insert_alert").removeClass("alert-info");
 										$("#insert_alert").addClass("alert-danger");
 										$("#insert_msg").html(data.msg);
-										$("#insert_cus").removeClass("hidden");
+										$("#insert_alert").removeClass("hidden");
 									}
 								});
 							});
