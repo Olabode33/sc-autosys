@@ -422,13 +422,13 @@
 							window.location.href = "customers.php?msg="+data.msg;
 					   }
 					   else {
-						   //alert(data.msg);
+						    //alert(data.msg);
 							$("#save_icon").removeClass("fa-spinner fa-pulse");
 							$("#save_icon").addClass("fa-save");
 							$("#insert_alert").removeClass("alert-info");
 							$("#insert_alert").addClass("alert-danger");
 							$("#insert_msg").html(data.msg);
-							$("#insert_cus").removeClass("hidden");
+							$("#insert_alert").removeClass("hidden");
 					   }
 					}
 				});
