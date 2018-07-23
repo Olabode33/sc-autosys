@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
+	'hostname' => '127.0.0.1',
+	'username' => 'sc_db_user',
+	'password' => '#JS8ktQoTlDZKfTlj#',
 	'database' => 'habtob_fc_db',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
