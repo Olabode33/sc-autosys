@@ -34,52 +34,52 @@ Modified by: Olabode33 (olabode33@gmail.com)
     </head>
     <body>
 	<div class="head" id="home">
-            <div class="container">
+            <div class="" style="height: 40px">
                 <div class="logo">
-                    <a href="index.html"><img src="<?php echo base_url(); ?>assets/images/HFC_logo.jpg" alt="" width="150px" class="img-circle"/></a>
+                    <a href="#"><img src="<?php echo base_url(); ?>assets/images/htfa_logo.png" alt="" width="150px" class="img-circle"/></a>
                 </div>
                 <div class="header">
                     <div class="menu">
                         <a class="toggleMenu" href="#"><img src="<?php echo base_url(); ?>assets/images/menu-icon.png" alt="" /> </a>
                         <ul class="nav" id="nav">
                             <li>
-                                <a href="index.html">
+                                <a href="#">
                                     <i class="fa fa-home"></i>
                                     Home
                                 </a>
                             </li>
                             <li>
-                                <a href="about.html">
+                                <a href="#">
                                     <i class="fa fa-group"></i>
                                     Our Squad
                                 </a>
                             </li>
                             <li>
-                                <a href="gallery.html">
+                                <a href="#">
                                     <i class="fa fa-calendar-o"></i>
                                     Calendar
                                 </a>
                             </li>
                             <li>
-                                <a href="gallery.html">
+                                <a href="#">
                                     <i class="fa fa-picture-o"></i>
                                     Gallery
                                 </a>
                             </li>
                             <li>
-                                <a href="gallery.html">
+                                <a href="#">
                                     <i class="fa fa-user"></i>
                                     Fanzone
                                 </a>
                             </li>
                             <li>
-                                <a href="gallery.html">
+                                <a href="#">
                                     <i class="fa fa-users"></i>
                                     Partners
                                 </a>
                             </li>
                             <li>
-                                <a href="gallery.html">
+                                <a href="#">
                                     <i class="fa fa-info-circle"></i>
                                     About Us
                                 </a>

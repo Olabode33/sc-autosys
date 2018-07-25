@@ -2,8 +2,39 @@
 	<div class="footer">
             <div class="container">
                 <div class="footer-main">
-                    <h3>JOIN US</h3><br>
-                    <a href="#" class="btn btn-primary btn-lg">Register</a>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h3>JOIN US</h3><br>
+                            <a href="<?php echo site_url('accounts/register'); ?>" class="btn btn-primary btn-lg">Register</a>
+                        </div>
+                        <div class="col-md-4">
+                            <h3>WHY HABTOB FA</h3><br>
+                            <p style="color:#fff">
+                                Once you  become a member of our academy your profile will be available to football clubs, football scouts and football agents to view.
+                            </p>
+                        </div>
+                        <div class="col-md-4 text-white">
+                            <h3>GET IN TOUCH</h3><br>
+                            <p style="color:#fff">
+                                <i class="fa fa-map-marker"></i>
+                                Somewhere in Lagos.
+                            </p>
+                            <p style="color:#fff">
+                                <i class="fa fa-envelope"></i>
+                                info@habtob.com.ng
+                            </p>
+                            <p style="color:#fff">
+                                <i class="fa fa-phone-square"></i>
+                                +234 888 888 8888
+                            </p>
+                            <p>
+                                <i class="fa fa-facebook-square fa-3x text-primary"></i>
+                                <i class="fa fa-twitter-square fa-3x text-info"></i>
+                                <i class="fa fa-google-plus-square fa-3x text-danger"></i>
+                                <i class="fa fa-instagram fa-3x text-white"></i>
+                            </p>
+                        </div>
+                    </div>
                     <div class="footer-bottom">
                         <div class="clearfix"></div>
                         <div class="ftr">

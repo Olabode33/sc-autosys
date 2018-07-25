@@ -12,19 +12,33 @@
             <img src="<?php echo base_url(); ?>assets/images/banner.jpg" alt="Los Angeles" width="100%">
             <div class="container">
                 <div class="carousel-caption">
-                    <h1 class='hidden-xs'>Join us!</h1>
-                    <p class='hidden-xs'>Do you love football?, do you want to learn how to play the game?</p>
-                    <p><a class="btn btn-lg btn-primary" href="<?php echo site_url('accounts/register'); ?>" role="button">Register with us today!</a></p>
+                    <h1 class='hidden-xs'>Welcome!!!!</h1>
+                    <p class='hidden-xs'>This is Habtob Football Academy</p><br>
+                    <p><a class="btn btn-lg btn-primary hidden-xs" href="<?php echo site_url('accounts/register'); ?>" role="button">Register with us today!</a></p>
                 </div>
             </div>
         </div>
 
         <div class="item">
             <img src="<?php echo base_url(); ?>assets/images/banner-1.jpg" alt="Chicago" width="100%">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1 class='hidden-xs'>Join us!</h1>
+                    <p class='hidden-xs'>Do you love football?, do you want to learn how to play the game?</p><br>
+                    <p><a class="btn btn-lg btn-primary hidden-xs" href="<?php echo site_url('accounts/register'); ?>" role="button">Register with us today!</a></p>
+                </div>
+            </div>
         </div>
 
         <div class="item">
             <img src="<?php echo base_url(); ?>assets/images/banner-2.jpg" alt="New York" width="100%">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1 class='hidden-xs'>Join us!</h1>
+                    <p class='hidden-xs'>Do you love football?, do you want to learn how to play the game?</p><br>
+                    <p><a class="btn btn-lg btn-primary hidden-xs" href="<?php echo site_url('accounts/register'); ?>" role="button">Register with us today!</a></p>
+                </div>
+            </div>
         </div>
     </div>
 
