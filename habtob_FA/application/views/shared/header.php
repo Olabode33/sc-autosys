@@ -35,7 +35,7 @@ Modified by: Olabode33 (olabode33@gmail.com)
     <body>
 	<div class="head" id="home">
             <div class="" style="height: 40px">
-                <div class="logo">
+                <div class="logo hidden-xs hidden-sm">
                     <a href="#"><img src="<?php echo base_url(); ?>assets/images/htfa_logo.png" alt="" width="150px" class="img-circle"/></a>
                 </div>
                 <div class="header">
