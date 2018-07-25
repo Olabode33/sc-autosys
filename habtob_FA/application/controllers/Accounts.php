@@ -29,9 +29,6 @@ class Accounts extends CI_Controller {
         $this->form_validation->set_rules('l_name', 'Last Name', 'required');
         $this->form_validation->set_rules('dob', 'Date of Birth', 'required');
         $this->form_validation->set_rules('gender', 'Gender', 'required');
-        $this->form_validation->set_rules('address', 'Address', 'required');
-        $this->form_validation->set_rules('lga', 'LGA', 'required');
-        $this->form_validation->set_rules('state', 'State', 'required');
         $this->form_validation->set_rules('is_student', 'Are you a student?', 'required');
         $this->form_validation->set_rules('education_level', 'Educational Level', 'required');
         $this->form_validation->set_rules('reason_to_join', 'Why do you want to join us', 'required');
@@ -40,8 +37,6 @@ class Accounts extends CI_Controller {
         $this->form_validation->set_rules('guardian_address', 'Guardian\'s Address', 'required');
         $this->form_validation->set_rules('guardian_phone', 'Guardian\'s Phone', 'required');
         $this->form_validation->set_rules('guardian_email', 'Guardian\'s Email', 'required');
-        $this->form_validation->set_rules('contact_phone', 'Contact Phone', 'required');
-        $this->form_validation->set_rules('contact_email', 'Contact Email', 'required');
         
         if($this->form_validation->run() === FALSE){
             $this->load->view('shared/header', $data);
