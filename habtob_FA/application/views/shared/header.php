@@ -12,6 +12,7 @@ Modified by: Olabode33 (olabode33@gmail.com)
         <meta name="viewport" content="width=device-width, initial-scale=1">	
         <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
         <meta name="keywords" content="Football, Football Academy, Football Club"/>
+        <link href="<?php echo base_url(); ?>assets/images/htfa_logo.png" rel="icon" type="image/png"/>
         <link href="<?php echo base_url(); ?>assets/css/bootstrap.css" rel='stylesheet' type='text/css' />
         <link href="<?php echo base_url(); ?>assets/css/style.css" rel='stylesheet' type='text/css' />
         <link href='http://fonts.googleapis.com/css?family=Arimo:400,700,400italic,700italic' rel='stylesheet' type='text/css'> 
@@ -34,8 +35,8 @@ Modified by: Olabode33 (olabode33@gmail.com)
     </head>
     <body>
 	<div class="head" id="home">
-            <div class="" style="height: 40px">
-                <div class="logo hidden-xs hidden-sm">
+            <div class="top-banner">
+                <div class="logo">
                     <a href="#"><img src="<?php echo base_url(); ?>assets/images/htfa_logo.png" alt="" width="150px" class="img-circle"/></a>
                 </div>
                 <div class="header">
@@ -43,7 +44,7 @@ Modified by: Olabode33 (olabode33@gmail.com)
                         <a class="toggleMenu" href="#"><img src="<?php echo base_url(); ?>assets/images/menu-icon.png" alt="" /> </a>
                         <ul class="nav" id="nav">
                             <li>
-                                <a href="#">
+                                <a href="<?php echo site_url(); ?>">
                                     <i class="fa fa-home"></i>
                                     Home
                                 </a>
@@ -62,20 +63,8 @@ Modified by: Olabode33 (olabode33@gmail.com)
                             </li>
                             <li>
                                 <a href="#">
-                                    <i class="fa fa-picture-o"></i>
-                                    Gallery
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
                                     <i class="fa fa-user"></i>
                                     Fanzone
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-users"></i>
-                                    Partners
                                 </a>
                             </li>
                             <li>
