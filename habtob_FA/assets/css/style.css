@@ -27,6 +27,9 @@ body a{
 	border-top:5px solid #ff2a00;
 	position: relative;
 }
+.top-banner{
+    height: 40px;
+}
 .logo{
 	text-align:center;
         position: absolute;
@@ -1824,8 +1827,18 @@ img.port-pic {
 	line-height: 1.8em;
 	margin: 8px 0px;
 }
+.top-banner{
+    height: 100%
+}
+.logo{
+	text-align:center;
+        position: initial;
+        z-index: 999;
+        margin-left: 0;
+}
 .logo img {
 	width: 29%;
+        background: #fff;
 }
 .toggleMenu {
 	float: none;
@@ -2076,7 +2089,7 @@ img.port-pic {
 	padding-top: 1.5em;
 }
 .website {
-	padding-top: 2em;
+	padding-top: 3em;
 }
 .website-top {
 	margin-bottom: 1.8em;
@@ -2107,8 +2120,15 @@ img.port-pic {
 }
 }
 @media (max-width:480px){
+.logo{
+	text-align:center;
+        position: initial;
+        z-index: 999;
+        margin-left: 0;
+}
 .logo img {
 	width: 41%;
+        background: #fff;
 }
 .gallery-content-head p {
 	width: 92%;
@@ -2404,7 +2424,7 @@ img.port-pic {
 	letter-spacing: 3px;
 }
 .website {
-	padding-top: 1.5em;
+	padding-top: 3em;
 }
 .facts img {
 	width: 15%;
@@ -2502,8 +2522,15 @@ h2.resp-accordion {
 .head {
 	padding: 6px 0px;
 }
+.logo{
+	text-align:center;
+        position: initial;
+        z-index: 999;
+        margin-left: 0;
+}
 .logo img {
 	width: 60%;
+        background: #fff;
 }
 .toggleMenu img {
 	width: 83%;
