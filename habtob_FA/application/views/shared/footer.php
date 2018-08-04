@@ -5,6 +5,12 @@
                     <div class="row">
                         <div class="col-md-4">
                             <h3>JOIN US</h3><br>
+                            <p style="color:#fff">
+                                Are you between the ages of 15 and 22? <br>
+                                Do you have passion for football and interested in making a career in professional football?<br> 
+                                Do you wish to harness your football skills and make the most of it?<br>
+                                Habtob Football Academy is the place to be.
+                            </p>
                             <a href="<?php echo site_url('accounts/register'); ?>" class="btn btn-primary btn-lg">Register</a>
                         </div>
                         <div class="col-md-4">
@@ -25,7 +31,7 @@
                             </p>
                             <p style="color:#fff">
                                 <i class="fa fa-phone-square"></i>
-                                +234 888 888 8888
+                                +234 813 527 6765
                             </p>
                             <p>
                                 <i class="fa fa-facebook-square fa-3x text-primary"></i>

@@ -37,7 +37,13 @@ Modified by: Olabode33 (olabode33@gmail.com)
 	<div class="head" id="home">
             <div class="top-banner">
                 <div class="logo">
-                    <a href="#"><img src="<?php echo base_url(); ?>assets/images/htfa_logo.png" alt="" width="150px" class="img-circle"/></a>
+                    <a href="#"><img src="<?php echo base_url(); ?>assets/images/htfa_logo.png" alt="" width="200px" class="img-circle"/></a>
+                </div>
+                <div class="top-label hidden-xs hidden-sm">
+                    <h3>
+                        HABTOB FOOTBALL ACADEMY
+                        <small>...Building the future through football, Established 2018</small>
+                    </h3>
                 </div>
                 <div class="header">
                     <div class="menu">
